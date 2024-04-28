@@ -1,6 +1,11 @@
+let projects = ['1', '2', '3'] //projetos ficticios
+let value = ['50'] //valor para simulacao
+let userPassword = ['12345'] //senha para simulacao
+
 let box = document.getElementById('tela')
 
 function showNewProjectCreate(){
+
     box.innerHTML = `
     <div id="box" class="box"> 
             <div class="navbar">
@@ -23,11 +28,42 @@ function showNewProjectCreate(){
 
             <br>
             <div class="options">
-                <button class="button">Começar agora</button>
-                <button class="button">Salvar</button>
+                <button class="button" onclick="processNewProject()">Começar agora</button>
+                <button class="button" onclick="saveCreateNewProject()">Salvar</button>
             </div>
             <br>
         </div>`
+
+
+}
+
+function processNewProject(){
+
+    let newProjectName = document.getElementById('newProjectName')
+    let newProject = newProjectName.value
+
+    if (newProject == '') {
+        newProjectName.style.border = '1px solid red'
+    }else{
+        openProject(newProject.toLowerCase())   
+    }
+
+    console.log(newProject);
+}
+function saveCreateNewProject() {
+    let newProjectName = document.getElementById('newProjectName')
+    let newProject = newProjectName.value
+    
+    if(newProject == ''){
+        newProjectName.style.border = '1px solid red'
+    }else{    
+        processNewProject()
+        closeNewProjectCreate()
+    }
+    
+
+
+
 }
 
 function closeNewProjectCreate() {
@@ -36,9 +72,6 @@ function closeNewProjectCreate() {
 
 //newProjectName -> nome do projeto
 //newProjectLink -> link
-
-let projects = ['1', '2', '3']
-
 
 function viewProjects() {
     box.innerHTML = 
@@ -103,21 +136,84 @@ function openProject(projectName) {
         </div>
         
         <div class="contab">
-            <b>XX:XX:XX</b> Horas no projeto <br>
-            <b>R$ X.XXX,XX</b> Aproximadamente
+            <span id="showCount"><b>0.0000</b> Horas dedicadas</span>  <br>
+            <span id="showCash"  ><b>R$ 0.000,00 </b> Valor estimado</span>
         </div>
         <br>
-        <button id="count" class="button" onclick="initCountHoursProject()">Contar</button>
-   
 
-        <div id="statusCount">🔴</div>
-        <div id="textCount">Parado...</div>
+        <span id="buttonCount" >
+        <button class="button" onclick="initCountHoursProject()">Contar</button>
+        </span>
+
+        <div id="statusCount"></div>
+        <div id="textCount">...</div>
         <br><br>
         
         `
 }
 
-function initCountHoursProject(){
-    
+function initCountHoursProject() {
+    let statusCount = document.getElementById('statusCount');
+    let textCount = document.getElementById('textCount');
+    let buttonCount = document.getElementById('buttonCount');
+    let showCount = document.getElementById('showCount');
+    let showCash = document.getElementById('showCash');
 
+    statusCount.innerHTML = '🟢';
+    textCount.innerHTML = `<span style="color: green;">Trabalhando...</span>`;
+    buttonCount.innerHTML = '<button class="button" onclick="viewProjects()">Parar</button>';
+
+    let horaInicio = new Date();
+    
+    setInterval(function() {
+        let diferencaEmMilissegundos = new Date() - horaInicio;
+        let horasPassadas = diferencaEmMilissegundos / (1000 * 60 * 60);
+
+        showCount.innerHTML = `<b style="color: green;">${horasPassadas.toFixed(4)}</b> Horas adicionadas ao projeto`;
+
+        let valorAgregado = horasPassadas * value
+        var formattedValue = valorAgregado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        showCash.innerHTML = `<b style="color: green;">${formattedValue}</b> Valor agregado`;
+    }, 1000);
 }
+
+function alterarValue(){
+    box.innerHTML = `
+    <div id="box" class="box"> 
+            <div class="navbar">
+            <span class="moveinfo">segure e arraste</span>
+                <p>🔐 AUTENTICAÇÃO </p>
+                <button onclick="closeNewProjectCreate()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <p>Valor por hora:</p>
+            <input type="number" name="" placeholder="R$ Valor" id="value" min="0" value="50">
+
+            <br>
+            <p>confirme sua senha:</p>
+            <input type="password" name="" placeholder="Digite sua senha" id="password">
+            <br>
+            <br>
+            <button class="button" style="width: 100%; background: #ffc83d;" onclick="saveValue()"> Salvar </button>
+            <br>
+            <br>
+
+        </div>`
+}
+
+function saveValue() {
+    let password = document.getElementById('password')
+    let passwordValue = password.value
+
+    if(passwordValue !== '' && passwordValue == userPassword){
+        closeNewProjectCreate()
+    }else{
+        password.style.border = '1px solid red'
+    }
+}
+

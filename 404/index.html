@@ -1,0 +1,33 @@
+<script>
+
+function isNotMobileDevice() {
+    return !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+
+if (isNotMobileDevice()) {
+    window.location.href = '../index.html';
+}
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Ops</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main class="bsod container">
+  <h1 class="neg title"><span class="bg">Pagina em desenvolvimento :) </span></h1>
+  <p>por enquanto, o acesso está disponivel apenas para usuarios de <b>PC</b> ou <b>Notebook</b></p>
+
+
+</main>
+<!-- partial -->
+  
+</body>
+</html>

@@ -1,3 +1,14 @@
+<script>
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+    window.location.href = '404/index.html';
+}
+
+</script>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,9 +47,9 @@
     </div>
 
     <div class="header">
-       <h4>Valor por hora: <input type="number" name="" placeholder="R$ " id="value" min="0"></h4>
+       <h4>Valor por hora: <span>R$ XX,XX      </span>
 
-       <button class="button">
+       <button class="button" onclick="alterarValue()">
         Atualizar
       </button>
     </div>
@@ -54,7 +65,7 @@
     </div>
 
     <script src="source/script/relogio.js"></script>
-    <script src="source/script/newProject.js"></script>
+    <script src="source/script/functions.js"></script>
     <script src="source/script/moveWindow.js"></script>
 </body>
 </html>

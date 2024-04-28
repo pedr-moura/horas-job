@@ -1,10 +1,18 @@
-let dataAtual = new Date()
-let hora = document.getElementById('hora')
+let hora = document.getElementById('hora');
 
 function actualizarHora() {
     var dataAtual = new Date();
-    hora.innerHTML = `${dataAtual.getHours()} : ${dataAtual.getMinutes()} : ${dataAtual.getSeconds()}`;
+    var horaAtual = dataAtual.getHours();
+    var minutoAtual = dataAtual.getMinutes();
+    var segundoAtual = dataAtual.getSeconds();
+
+    hora.innerHTML = `${dataAtual.getHours()}:${dataAtual.getMinutes()}:${dataAtual.getSeconds()}`;
+    
+
+    localStorage.setItem('dataAtual', dataAtual);
 }
+
+actualizarHora();
 
 setInterval(actualizarHora, 1000);
 
