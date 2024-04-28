@@ -23,6 +23,9 @@
     padding: 5px 50px;
     border-radius: 50px;
 }
+button{
+    z-index: 2;
+}
 .header a{
     color: #9bfffa;
 }
@@ -94,17 +97,42 @@ input{
   .box {
     padding: 0px 20px;
     background-color: #c8e2ff;
-    height: auto;
     width: auto;
     min-width: 300px;
     position: absolute;
-    top: 200px;
-    border-radius: 30px;
-    border: 2px solid #003b7b;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, 0px);
-    animation: fade-in 0.3s ease forwards;
+    transform: translate(-50%, 0%);
+    border-radius: 30px;
+    animation: fade-in 0.2s ease;
+  }
+  #moveWindow{
+    display: flex;
+  }
+  #boxheader {
+    width: 200px;
+    height: 30px;
+    user-select: none;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
 }
+.box.draggable {
+    position: absolute;
+}
+
+  
+  /* Animação */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
   
 .navbar button {
     position: absolute;
@@ -126,7 +154,7 @@ input{
     font-size: 20px;
     font-weight: bold;
     color: #3271b6;
-    width: 200px;
+    width: auto;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0px);
@@ -163,4 +191,23 @@ input{
 #projetos span {
     overflow-wrap: break-word;
     width: 200px;
+}
+#statusCount {
+    position: absolute;
+    right: 40px;
+    top: 10px;
+
+}
+#textCount {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    color: red;
+}
+.moveinfo{
+    color: #9db4cd;
+    font-variant-caps: all-petite-caps;
+    padding: 20px;
+    top: 10px;
+    position: relative;
 }
