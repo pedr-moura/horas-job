@@ -22,55 +22,149 @@
         opacity: 1;
     }
 }
-
-.header {
-    display: flex;
-    background-color: #185da6b3;
-    color: white;
-    flex-wrap: nowrap;
-    align-content: center;
-    width: 800px;
-    text-align: center;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 50px;
-    border-radius: 50px;
+.painel {
+    background: #ffff;
+    padding: 10px 60px 40px 60px;
+    width: 100%;
+    border-radius: 31px;
 }
-
+.header {
+    color: black;
+    width: 100%;
+}
 .header a{
     color: #9bfffa;
 }
-body{
+.header .options{
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+}
+.header .options b{
+margin-right: 20px;
+}
+.header h1{
+    font-size: 30px;
+}
+body {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    background-color: #313131;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    
 }
-.relogio {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 50px;
-    height: 400px;
+
+.sectionleft {
+    margin: 40px 0px 0px 0px;
+    max-width: 630px;
+    min-width: 630px;
+}
+.sectiontitle{
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    justify-content: flex-start;
+}
+.sectiontitle .button {
+    display: flex;
+    min-width: 125px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.sectiontitle .button svg {
+    height: 30px;
+    top: 4px;
+    position: relative;
+}
+
+#viewoff{
+    display: block;
+}
+#viewon{
+    display: none;
+}
+#sectionTitleName {
+    min-width: 317px;
+}
+.sectionleft b{
+font-size: 30px;
+width: 100%;
+}
+#boxHoras, #boxHoras span  {
+    background: #9fe96e;
+    color: #9fe96e;
+}
+#boxValor, #boxValor span {
+    background: #a4a7f6;
+    color: #a4a7f6;
+}
+.objsection svg{
+    position: relative;
+    top: 4px;
+}
+.sectioninfo b{
+    font-size: 15px;
+    font-weight: normal;
+    margin-right: 45px;
+}
+#boxHoras, #boxValor{
+    color: #000000;
+}
+.sectioninfo #boxHoras{
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+}
+.sectioninfo #boxValor{
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+}
+.sectionbox {
+    border: 0.5px solid black;
+    display: inline-flex;
+    color: white;
+    background: #000000;
+    border-radius: 20px;
+    -webkit-box-shadow: 7px 15px 0px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 7px 15px 0px 0px rgba(0, 0, 0, 1);
+    box-shadow: 5px 10px 0px 0px rgb(67 67 67);
+    min-height: 180px;
+    height: 180px;
+    min-width: 180px;
+    width: 180px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-right: 25px;
+}
+.sectionbox b {
+    font-weight: normal;
+    margin: 10px 0px 5px 0px;
+    text-align: center;
+    font-size: 15px;
 }
 .hora {
-    font-size: 50px;
     position: absolute;
     top: 80px;
     font-weight: 700;
     color: #5c5c5c;
 }
-#hora {
-    font-size: 80px;
-    color: #185da6b3;
-    background: #78b3f369;
-    padding: 20px;
-    border: 1px solid;
-    border-radius: 100px;
+#data {
+ font-size: 10px;
+}
+.sectionInfo {
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 800;
 }
 input{
     width: 100px;
@@ -80,13 +174,38 @@ input{
     border-radius: 10px;
     padding: 0px 10px;
 }
+.sectionconteiner {
+    display: flex;
+    margin: 30px 0px;
+    align-items: center;
+}
+.sectionDays {
+    margin-bottom: 20px;
+}
+.sectionDays .button{
+    width: 100px;
+    background-color: none;
+    border: none;
+    background-color: none;
+    box-shadow: none;
+    color: black;
+}
+#dayUm{
+    background-color: #000000;
+    color: white;
+}
+#ultimos4Dias{
+    position: relative;
+  
+}
 .button {
+    margin-right: 20px;
     --font-color: #323232;
     --bg-color: #fff;
     --main-color: #323232;
     width: 120px;
     height: 40px;
-    border-radius: 50px;
+    border-radius: 15px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     box-shadow: 4px 4px var(--main-color);
@@ -185,6 +304,7 @@ input{
 .options button{
     width: auto;   
     padding: 0px 20px;
+    margin-right: 20px;
 }
 #projetos p {
     font-size: 20px;
@@ -222,3 +342,72 @@ input{
     top: 10px;
     position: relative;
 }
+
+.showprojectshome p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+/* 
+
+*/
+
+.wrapper {
+    font-weight: bold;
+    --font-color-dark: #000000;
+    --font-color-light: #FFF;
+    --bg-color: #fff;
+    --main-color: #434343;
+    position: relative;
+    min-width: 600px;
+    height: 32px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+}
+  
+  .option {
+    width: 80.5px;
+    height: 28px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+  }
+  
+  .input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    appearance: none;
+    cursor: pointer;
+  }
+  
+  .btn {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .span {
+    color: var(--font-color-dark);
+  }
+  
+  .input:checked + .btn {
+    background-color: #000000;
+}
+  
+  .input:checked + .btn .span {
+    color: var(--font-color-light);
+  }
