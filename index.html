@@ -28,7 +28,7 @@
     bottom: 0px;
     background: none;
     width: 1px;
-    height: 1px;""
+    height: 1px;
     -webkit-box-shadow: 0px 0px 200px 68px rgba(46, 255, 112, 0.6);
     -moz-box-shadow: 0px 0px 200px 68px rgba(46, 255, 112, 0.6);
     box-shadow: 0px 0px 330px 130px rgb(164 167 246);
@@ -45,7 +45,7 @@
                 Jobb
             </h1>
             
-            <div class="options">
+            <div class="options"  style="cursor: pointer;"> 
               <!-- <button class="button" onclick="viewProjects()">
                 Ver projetos
               </button>
@@ -55,8 +55,10 @@
                 Novo
               </button> -->
 
-              <b onclick="viewProjects()" style="cursor: pointer;">Projetos</b>
-              <b onclick="showNewProjectCreate()" style="cursor: pointer;">Novo</b>
+              <b onclick="viewProjects()">Projetos</b>
+              <b onclick="showNewProjectCreate()">Novo</b>
+              <b onclick="alterarValue()">Config</b>
+
             </div>
     </div>
 
@@ -164,11 +166,6 @@
 
           </div>
 
-          <div class="header">
-            <button class="button" onclick="alterarValue()">
-              Atualizar
-            </button>
-          </div>
           
           <br><br><br>
 

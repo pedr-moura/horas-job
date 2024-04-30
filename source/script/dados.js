@@ -23,6 +23,18 @@ let projects = {
         'name': 'projeto4',
         'last-data': '27/4/2024',
         'horas': '2.00'
+    },
+    'projeto5': {
+        // informações do projeto 3
+        'name': 'projeto5',
+        'last-data': '27/4/2024',
+        'horas': '2.00'
+    },
+    'projeto6': {
+        // informações do projeto 3
+        'name': 'projeto6',
+        'last-data': '27/4/2024',
+        'horas': '2.00'
     }
 };
 
@@ -49,9 +61,9 @@ function showProjectsHome(){
             if (lastData == dateShow.innerHTML) {
                 projectsHome.innerHTML += `
                 <p>
-                <span>${name}</span>
-                <span>${horas} horas</span>
-                <span>Ultimo vez em ${lastData}</span>
+                <span class="horasProject">${horas} h</span>
+                <span class="nameProject">${name}</span>
+                <span class="dataProject">Ultimo vez em ${lastData}</span>
                 
             
               </p>`
