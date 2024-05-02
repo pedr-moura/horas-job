@@ -16,30 +16,42 @@ function obterUltimos4Dias() {
     var hoje = new Date();
     var dias = [];
 
-    for (var i = 0; i < 8; i++) {
+    for (var i = -1; i < 6; i++) {
         var data = new Date(hoje);
         data.setDate(hoje.getDate() - i);
-        
-        if (i == 0) {
+
+        if (i == -1) {
             dias.push(`
             <div class="option">
-                    <input class="input" type="radio" name="btn" value="${hoje.getDate()}" checked="">
-                    <div class="btn">
-                      <span class="span">Hoje</span>
+                    <input class="input" type="radio" name="btn" value="${hoje.getDate() +1}" >
+                    <div class="btn" id="dayChecked" >
+                      <span class="span" id="spanChecked">Todos</span>
                     </div>
                   </div>
             `);
-            
         }else{
-            dias.push(`
-            <div class="option">
-                    <input class="input" type="radio" name="btn" value="${data.getDate()}" checked="">
-                    <div class="btn">
-                      <span class="span">${data.getDate()}</span>
-                    </div>
-                  </div>
-            `);
+            if (i == 0) {
+                dias.push(`
+                <div class="option">
+                        <input class="input" type="radio" name="btn" value="${hoje.getDate()}" checked>
+                        <div class="btn">
+                          <span class="span">Hoje</span>
+                        </div>
+                      </div>
+                `);
+                
+            }else{
+                dias.push(`
+                <div class="option">
+                        <input class="input" type="radio" name="btn" value="${data.getDate()}">
+                        <div class="btn">
+                          <span class="span">${data.getDate()}</span>
+                        </div>
+                      </div>
+                `);
+            }
         }
+
 
         
     }
@@ -47,7 +59,7 @@ function obterUltimos4Dias() {
     return dias.reverse(); // Reverte a ordem para que os dias apareçam do mais recente para o mais antigo
 }
 
-function atualizarUltimos4Dias() {
+function atualizarUltimosDias() {
     var dias = obterUltimos4Dias();
     ultimos4Dias.innerHTML = dias.join('<br>');
 }
@@ -55,30 +67,39 @@ function atualizarUltimos4Dias() {
 
 atualizarHora();
 atualizarDia();
-atualizarUltimos4Dias();
+atualizarUltimosDias();
 
 setInterval(atualizarHora, 1000);
 
 var dataAtual = new Date();
+
 const radioInputs = document.querySelectorAll('.input');
 let dateShow = document.getElementById('dateShow')
-dateShow.innerHTML = `${dataAtual.getDate() }/${dataAtual.getMonth()}/${dataAtual.getFullYear()}`
+dateShow.innerHTML = `${dataAtual.getDate()}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`
 
 radioInputs.forEach(input => {
     input.addEventListener('change', function() {
 
+    if (this.checked) {
+                
+                const selectedValue = this.value;
+                dateShow.innerHTML = `${selectedValue}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`
+    
+                if (selectedValue > Number(dataAtual.getDate())) {
+                    dateShow.innerHTML = `${selectedValue}/${dataAtual.getMonth()}/${dataAtual.getFullYear()}`
+        
+                    clearProjectHome()
+                    showProjectsHome()
+                }
 
-   
-
-        if (this.checked) {
-            const selectedValue = this.value;
-            dateShow.innerHTML = `${selectedValue}/${dataAtual.getMonth()}/${dataAtual.getFullYear()}`
-
-            clearProjectHome()
-            showProjectsHome()
-        }
-
+                clearProjectHome()
+                showProjectsHome()
+                
+    }
+    
+        
 
 
     });
 });
+obterUltimos4Dias()
