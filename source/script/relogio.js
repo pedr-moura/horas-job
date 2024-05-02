@@ -16,7 +16,7 @@ function obterUltimos4Dias() {
     var hoje = new Date();
     var dias = [];
 
-    for (var i = -1; i < 8; i++) {
+    for (var i = 0; i < 8; i++) {
         var data = new Date(hoje);
         data.setDate(hoje.getDate() - i);
         
