@@ -20,7 +20,7 @@ function obterUltimos4Dias() {
         var data = new Date(hoje);
         data.setDate(hoje.getDate() - i);
         
-        if (i == -1) {
+        if (i == 0) {
             dias.push(`
             <div class="option">
                     <input class="input" type="radio" name="btn" value="${hoje.getDate()}" checked="">
