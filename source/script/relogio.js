@@ -72,7 +72,7 @@ radioInputs.forEach(input => {
 
         if (this.checked) {
             const selectedValue = this.value;
-            dateShow.innerHTML = `${selectedValue}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`
+            dateShow.innerHTML = `${selectedValue}/${dataAtual.getMonth()}/${dataAtual.getFullYear()}`
 
             clearProjectHome()
             showProjectsHome()
