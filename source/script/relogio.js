@@ -21,19 +21,12 @@ function obterUltimos4Dias() {
         data.setDate(hoje.getDate() - i);
 
         if (i == -1) {
-            dias.push(`
-            <div class="option">
-                    <input class="input" type="radio" name="btn" value="${hoje.getDate() +1}" >
-                    <div class="btn" id="dayChecked" >
-                      <span class="span" id="spanChecked">Todos</span>
-                    </div>
-                  </div>
-            `);
+
         }else{
             if (i == 0) {
                 dias.push(`
                 <div class="option">
-                        <input class="input" type="radio" name="btn" value="${hoje.getDate()}" checked>
+                        <input class="input" type="radio" name="btn" value="${hoje.getDate()}" >
                         <div class="btn">
                           <span class="span">Hoje</span>
                         </div>

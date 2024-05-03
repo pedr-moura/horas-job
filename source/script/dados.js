@@ -4,43 +4,65 @@ let projects = {
         // informações do projeto 1
         'name': '-----------------------',
         'last-data': '29/4/2024',
-        'horas': '10.39',
-        'format-data': '2024-04-29'
+        'horas': '7.39',
+        'format-data': '2024-04-29',
+        'type': 'study'
     },
     'projeto2': {
         // informações do projeto 2
         'name': 'projeto2',
         'last-data': '28/4/2024',
-        'horas': '1.00',
-        'format-data': '2024-04-28'
+        'horas': '2.20',
+        'format-data': '2024-04-28',
+        'type': 'job'
     },
     'projeto3': {
         // informações do projeto 3
         'name': 'projeto3',
         'last-data': '27/4/2024',
-        'horas': '2.00',
-        'format-data': '2024-04-27'
+        'horas': '2.50',
+        'format-data': '2024-04-27',
+        'type': 'study'
     },
     'projeto4': {
         // informações do projeto 3
         'name': 'projeto4',
         'last-data': '27/4/2024',
         'horas': '2.00',
-        'format-data': '2024-04-27'
+        'format-data': '2024-04-27',
+        'type': 'study'
     },
     'projeto5': {
         // informações do projeto 3
         'name': 'projeto5',
         'last-data': '27/4/2024',
-        'horas': '2.00',
-        'format-data': '2024-04-26'
+        'horas': '3.00',
+        'format-data': '2024-04-26',
+        'type': 'study'
     },
     'projeto6': {
         // informações do projeto 3
         'name': 'projeto6',
         'last-data': '27/4/2024',
+        'horas': '4.62',
+        'format-data': '2024-04-25',
+        'type': 'job'
+    },
+    'projeto7': {
+        // informações do projeto 3
+        'name': 'projeto7',
+        'last-data': '24/4/2024',
+        'horas': '1.00',
+        'format-data': '2024-04-24',
+        'type': 'job'
+    },
+    'projeto8': {
+        // informações do projeto 3
+        'name': 'projeto8',
+        'last-data': '3/5/2024',
         'horas': '2.00',
-        'format-data': '2024-04-29'
+        'format-data': '2024-05-03',
+        'type': 'job'
     }
 };
 
