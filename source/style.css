@@ -260,16 +260,25 @@ input{
     margin: 10px;
   }
   .box {
+    border: 1px solid #dadada;
+    color: white;
     padding: 0px 20px;
-    background-color: #c8e2ff;
+    background-color: #575757;
     width: auto;
     min-width: 300px;
     position: absolute;
-    top: 0%;
-    left: 50%;
+    top: 40px;
+    right: -45px;
     transform: translate(-50%, 0%);
     border-radius: 30px;
     animation: fade-in 0.2s ease;
+    z-index: 1;
+    -webkit-box-shadow: 10px 10px 132px -8px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 10px 10px 132px -8px rgba(0, 0, 0, 0.59);
+    box-shadow: 10px 10px 132px -8px rgba(0, 0, 0, 0.59);
+}
+  .box strong{
+    color: #82e87e;
   }
   #moveWindow{
     display: flex;
@@ -316,13 +325,13 @@ input{
     background: #ff0000;
 }
 .navbar p {
-    font-size: 20px;
-    font-weight: bold;
-    color: #3271b6;
-    width: auto;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0px);
+  font-size: 20px;
+  font-weight: bold;
+  color: #93ed78;
+  width: auto;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0px);
 }
 .box input{
     width: 80%;
@@ -561,10 +570,7 @@ input{
       .radio-input label:has(input:checked) {
         color: black;
         border-bottom: 2px solid #93ec78;
-
-        
       }
-      
       .radio-input label:has(input:checked) ~ .selection {
         display: inline-block;
       }
@@ -634,4 +640,77 @@ input{
     height: 318px;
     width: 600px;
     padding: 10px;
+}
+
+#sectionProjects{
+  display: none;
+  width: 90%;
+  display: flex;
+  font-size: 15px;
+  position: absolute;
+  top: 150px;
+  justify-content: space-between;
+  max-width: 1220px;
+  -webkit-animation: fade-in-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  overflow: auto;
+  height: 500px;
+}
+#sectionProjects li{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+#sectionProjects span{
+  min-width: 300px;
+}
+#sectionProjects button{
+  border: none;
+  color: #ff7070;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  top: -5px;
+  background-color: white;
+  cursor: pointer;
+}
+#sectionProjects button:hover, #sectionProjects a:hover{
+  color: black;
+}
+#sectionProjects b{
+  position: absolute;
+  left: 17%;
+}
+#sectionProjects a{
+  color: green;
+}
+#sectionProjects::-webkit-scrollbar {
+  height: 12px; /* Altura da barra de rolagem */
+  background-color: transparent; /* Cor de fundo da barra de rolagem */
+}
+
+#sectionProjects::-webkit-scrollbar-thumb {
+  background-color: rgb(0 0 0);
+  border-radius: 6px;
+}
+
+#sectionProjects::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: rgb(240, 240, 240);
+}
+#sectionProjects p {
+  display: flex;
+  border: 1px solid;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-right: 10px;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+#sectionProjects #retomarProject{
+  position: absolute;
+  left: 60%;
 }

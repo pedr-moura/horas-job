@@ -1,10 +1,12 @@
 let projects = {
-
+    'value': '50',
     'projeto1': {
         // informações do projeto 1
         'name': '-----------------------',
         'last-data': '29/4/2024',
         'horas': '7.39',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-29',
         'type': 'study'
     },
@@ -13,6 +15,8 @@ let projects = {
         'name': 'projeto2',
         'last-data': '28/4/2024',
         'horas': '2.20',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-28',
         'type': 'job'
     },
@@ -21,6 +25,8 @@ let projects = {
         'name': 'projeto3',
         'last-data': '27/4/2024',
         'horas': '2.50',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-27',
         'type': 'study'
     },
@@ -29,6 +35,8 @@ let projects = {
         'name': 'projeto4',
         'last-data': '27/4/2024',
         'horas': '2.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-27',
         'type': 'study'
     },
@@ -37,6 +45,8 @@ let projects = {
         'name': 'projeto5',
         'last-data': '27/4/2024',
         'horas': '3.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-26',
         'type': 'study'
     },
@@ -45,6 +55,8 @@ let projects = {
         'name': 'projeto6',
         'last-data': '27/4/2024',
         'horas': '4.62',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-25',
         'type': 'job'
     },
@@ -53,6 +65,8 @@ let projects = {
         'name': 'projeto7',
         'last-data': '24/4/2024',
         'horas': '1.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-04-24',
         'type': 'job'
     },
@@ -61,13 +75,56 @@ let projects = {
         'name': 'projeto8',
         'last-data': '3/5/2024',
         'horas': '2.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
+        'format-data': '2024-05-03',
+        'type': 'job'
+    },
+    'projeto9': {
+        // informações do projeto 3
+        'name': 'projeto9',
+        'last-data': '3/5/2024',
+        'horas': '2.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
+        'format-data': '2024-05-03',
+        'type': 'job'
+    },
+    'projeto10': {
+        // informações do projeto 3
+        'name': 'projeto10',
+        'last-data': '3/5/2024',
+        'horas': '2.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
+        'format-data': '2024-05-03',
+        'type': 'job'
+    },
+    'projeto11': {
+        // informações do projeto 3
+        'name': 'projeto11',
+        'last-data': '3/5/2024',
+        'horas': '2.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
+        'format-data': '2024-05-03',
+        'type': 'job'
+    },
+    'projeto12': {
+        // informações do projeto 3
+        'name': 'projeto12',
+        'last-data': '3/5/2024',
+        'horas': '2.00',
+        'acumulado': '7.39',
+        'git' : 'https://github.com/pedr-moura',
         'format-data': '2024-05-03',
         'type': 'job'
     }
 };
 
-
 let value = ['50']; // valor para simulação
+
+
 let userPassword = ['12345']; // senha para simulação
 
 
