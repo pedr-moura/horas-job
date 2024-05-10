@@ -260,16 +260,16 @@ input{
     margin: 10px;
   }
   .box {
-    border: 1px solid #dadada;
+    border: 3px solid #92ec78;
     color: white;
     padding: 0px 20px;
-    background-color: #575757;
-    width: auto;
+    background-color: #404040;
+    width: 400px;
     min-width: 300px;
     position: absolute;
-    top: 40px;
-    right: -45px;
-    transform: translate(-50%, 0%);
+    top: 0%;
+    right: 50%;
+    transform: translate(50%, 50%);
     border-radius: 30px;
     animation: fade-in 0.2s ease;
     z-index: 1;
@@ -648,7 +648,7 @@ input{
   display: flex;
   font-size: 15px;
   position: absolute;
-  top: 150px;
+  top: 180px;
   justify-content: space-between;
   max-width: 1220px;
   -webkit-animation: fade-in-bottom 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;

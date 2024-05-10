@@ -26,7 +26,7 @@ function obterUltimos4Dias() {
             if (i == 0) {
                 dias.push(`
                 <div class="option">
-                        <input class="input" type="radio" name="btn" value="${hoje.getDate()}" >
+                        <input class="input" type="radio" name="btn" value="${hoje.getDate()}">
                         <div class="btn">
                           <span class="span">Hoje</span>
                         </div>
@@ -69,6 +69,7 @@ var dataAtual = new Date();
 const radioInputs = document.querySelectorAll('.input');
 let dateShow = document.getElementById('dateShow')
 dateShow.innerHTML = `${dataAtual.getDate()}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`
+let show = dateShow.innerHTML
 
 radioInputs.forEach(input => {
     input.addEventListener('change', function() {
@@ -95,4 +96,7 @@ radioInputs.forEach(input => {
 
     });
 });
+
 obterUltimos4Dias()
+
+console.log(`user ${idUsuario}`)

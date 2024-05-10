@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response da API</title>
+</head>
+<body>
+    <script>
+        let projects = {
+            'value': '10',
+            'projeto1': {
+                // informações do projeto 1
+                'name': 'projeto1',
+                'last-data': '5/5/2024',
+                'horas': '7.39',
+                'acumulado': '14.00',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-05-05',
+                'type': 'study'
+            },
+            'projeto2': {
+                // informações do projeto 2
+                'name': 'projeto2',
+                'last-data': '28/4/2024',
+                'horas': '2.20',
+                'acumulado': '6.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-04-28',
+                'type': 'job'
+            },
+            'projeto3': {
+                // informações do projeto 3
+                'name': 'projeto3',
+                'last-data': '27/4/2024',
+                'horas': '2.50',
+                'acumulado': '8.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-04-27',
+                'type': 'study'
+            },
+            'projeto4': {
+                // informações do projeto 3
+                'name': 'projeto4',
+                'last-data': '27/4/2024',
+                'horas': '2.00',
+                'acumulado': '23.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-04-27',
+                'type': 'study'
+            },
+            'projeto5': {
+                // informações do projeto 3
+                'name': 'projeto5',
+                'last-data': '27/4/2024',
+                'horas': '12.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-04-26',
+                'type': 'study'
+            },
+            'projeto6': {
+                // informações do projeto 3
+                'name': 'projeto6',
+                'last-data': '27/4/2024',
+                'horas': '4.62',
+                'acumulado': '54.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-04-25',
+                'type': 'job'
+            },
+            'projeto7': {
+                // informações do projeto 3
+                'name': 'projeto7',
+                'last-data': '24/4/2024',
+                'horas': '1.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-04-24',
+                'type': 'job'
+            },
+            'projeto8': {
+                // informações do projeto 3
+                'name': 'projeto8',
+                'last-data': '3/5/2024',
+                'horas': '2.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-05-03',
+                'type': 'job'
+            },
+            'projeto9': {
+                // informações do projeto 3
+                'name': 'projeto9',
+                'last-data': '3/5/2024',
+                'horas': '2.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-05-03',
+                'type': 'job'
+            },
+            'projeto10': {
+                // informações do projeto 3
+                'name': 'projeto10',
+                'last-data': '10/5/2024',
+                'horas': '7.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-05-03',
+                'type': 'job'
+            },
+            'projetodiferente11': {
+                // informações do projeto 3
+                'name': 'projeto11',
+                'last-data': '8/5/2024',
+                'horas': '9.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-05-8',
+                'type': 'job'
+            },
+            'projetomaisdiferente12': {
+                // informações do projeto 3
+                'name': 'projeto12',
+                'last-data': '10/5/2024',
+                'horas': '3.00',
+                'acumulado': '7.39',
+                'git': 'https://github.com/pedr-moura',
+                'format-data': '2024-05-10',
+                'type': 'job'
+            }
+        };
+
+        // Contar quantos projetos existem
+        let totalProjects = Object.keys(projects).length - 1; // Excluindo a chave 'value'
+
+        // Convertendo o objeto projects em JSON
+        let projectsJSON = JSON.stringify(projects, null, 4);
+
+        // Criando uma div para exibir o JSON
+        let jsonDiv = document.createElement('div');
+        jsonDiv.textContent = projectsJSON;
+
+        // Adicionando a div ao corpo do documento
+        document.body.appendChild(jsonDiv);
+        
+        // Armazenando o JSON em localStorage
+        localStorage.setItem('projectsData', projectsJSON);
+
+        // Recuperando os dados salvos no localStorage
+        let retrievedData = localStorage.getItem('projectsData');
+
+        // Verificando quantos projetos foram salvos no localStorage
+        let savedProjects = retrievedData ? Object.keys(JSON.parse(retrievedData)).length - 1 : 0;
+
+        // Exibindo os resultados
+        console.log(`Total de projetos: ${totalProjects}`);
+        console.log(`Projetos salvos no localStorage: ${savedProjects}`);
+    </script>
+</body>
+</html>

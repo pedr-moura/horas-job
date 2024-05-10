@@ -70,18 +70,18 @@ function closeNewProjectCreate() {
 
 //newProjectName -> nome do projeto
 //newProjectLink -> link
+
 function viewProjects() {
 
         // Obter os valores dos elementos HTML
         var uploadNameProject = document.getElementById("uploadNameProject").innerText;
         var hoursCount = document.getElementById("hoursCount").innerText;
-        var valueCount = document.getElementById("valueCount").innerText;
 
         // Formatar os dados para enviar na URL
-        var dados = "uploadNameProject=" + encodeURIComponent(uploadNameProject) + "&hoursCount=" + encodeURIComponent(hoursCount) + "&valueCount=" + encodeURIComponent(valueCount);
+        var dados = "uploadNameProject=" + encodeURIComponent(uploadNameProject) + "&hoursCount=" + encodeURIComponent(hoursCount);
 
         // Montar a URL da API
-        var urlAPI = "http://exemplo.com/api/endpoint?" + dados;
+        var urlAPI = `http://-------api--------/?id=${idUsuario}&` + dados;
 
         // Enviar os dados para a API via GET
         fetch(urlAPI, {
@@ -110,7 +110,23 @@ function viewProjects() {
 function openProject(projectName) {
     showOverviewPage()
     
+
   for (const projeto in projects) {
+    
+ let acumulado = 0
+ if (projects[projectName]) {
+    totalDoProjeto = projects['value'] * projects[projectName].acumulado
+    totalDoProjeto = totalDoProjeto.toFixed(2);
+    acumulado = projects[projectName].acumulado
+ }else{
+    totalDoProjeto = 0
+ }
+ let totalDoProjetoFormatado = totalDoProjeto.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+});
+
+
     box.innerHTML = 
     `<div id="box" class="box">
         <div class="navbar">
@@ -124,8 +140,8 @@ function openProject(projectName) {
         </div>
         
         <div class="contab">
-            <span id="showCount"><b>${projects[projeto].acumulado}</b> Horas dedicadas</span>  <br>
-            <span id="showCash"><b>R$ ${projects['value'] * projects[projeto].acumulado}</b> Valor estimado</span>
+            <span id="showCount"><b>${acumulado}</b> Horas dedicadas</span>  <br>
+            <span id="showCash"><b>R$ ${totalDoProjetoFormatado}</b> Valor estimado</span>
         </div>
         <br>
 
@@ -182,7 +198,7 @@ function alterarValue(){
             </div>
 
             <p>Valor por hora:</p>
-            <input type="number" name="" placeholder="R$ Valor" id="value" min="0" value="50">
+            <input type="number" name="" placeholder="R$ Valor" id="value" min="0" value="${value}">
 
             <br>
             <p>Digite '<strong>12345</strong>' para validar</p>
@@ -207,7 +223,7 @@ function saveValue() {
         // Verifica se o valor a ser enviado é um número válido
         if (!isNaN(parseFloat(valueToSend)) && isFinite(valueToSend)) {
             // URL da API para atualizar o valor (substitua 'sua-api.com' pela URL real)
-            let apiUrl = 'https://------api--------/atualizar-valor?valor=' + encodeURIComponent(valueToSend);
+            let apiUrl = `https://------api--------/?id=${idUsuario}&valor=` + encodeURIComponent(valueToSend);
 
             // Envia a solicitação GET para a API
             fetch(apiUrl)
@@ -226,8 +242,10 @@ function saveValue() {
             // Se o valor a ser enviado não for um número válido, exibe uma mensagem de erro
             alert('Por favor, insira um valor numérico válido.');
         }
+        closeNewProjectCreate()
     } else {
         // Se a senha estiver incorreta ou vazia, exibe uma mensagem de erro
         password.style.border = '1px solid red';
     }
+    
 }

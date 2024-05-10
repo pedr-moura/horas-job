@@ -20,12 +20,13 @@ for (let project in projects) {
     }
 }
 
-let totalValue = horasJob * value
+let totalValue = horasJob * value;
+// Arredonda o valor para duas casas decimais
+totalValue = totalValue.toFixed(2);
 let totalValueFormatado = totalValue.toLocaleString('pt-BR', {
     style: 'currency',
     currency: 'BRL'
 });
-
 
 showHoursSection.innerHTML = `${totalHoras} horas`
 
