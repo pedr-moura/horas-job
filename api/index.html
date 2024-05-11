@@ -156,6 +156,25 @@
         // Exibindo os resultados
         console.log(`Total de projetos: ${totalProjects}`);
         console.log(`Projetos salvos no localStorage: ${savedProjects}`);
-            </script>
+
+        const idUsuario = obterParametroGET('id');
+
+        function obterParametroGET(nome) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(nome); }
+
+     function redirecionarPara(url) {
+    window.location.href = url;
+        }
+
+        if (totalProjects !== 0 && idUsuario !== null) {
+        redirecionarPara(`../?id=${idUsuario}&auth=1`);
+        }else{
+            redirecionarPara(`../login/`);
+        }
+
+
+
+    </script>
 </body>
 </html>

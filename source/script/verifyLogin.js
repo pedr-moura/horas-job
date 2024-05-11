@@ -15,14 +15,14 @@ if (idUsuario !== null) {
     // Tente obter os dados do localStorage
     const projectsData = localStorage.getItem('projectsData');
 
-    fetch('/api/')
-
+    
     if (projectsData) {
 
         window.projects = JSON.parse(projectsData);
 
     } else {
         console.error('Erro: Dados não encontrados na localStorage');
+        redirecionarPara(`/api/?id=${idUsuario}`);
     }
 } else {
     redirecionarPara('/login');
