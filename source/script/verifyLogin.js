@@ -15,6 +15,8 @@ if (idUsuario !== null) {
     // Tente obter os dados do localStorage
     const projectsData = localStorage.getItem('projectsData');
 
+    fetch('/api/')
+
     if (projectsData) {
 
         window.projects = JSON.parse(projectsData);

@@ -7,6 +7,8 @@
 - armazenar o id internamente e checkar sempre que houver uma alteracao no get, para garantir que o usuario está na conta correta.
 
 
+### as informarções só são baixadas ao iniciar a api
+
 -- api obter projetos do bd
 # falta fazer a api que entrega os dados para o sistema, pelo id do usuario
 
