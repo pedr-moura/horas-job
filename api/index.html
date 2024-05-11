@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Response da API</title>
+    <title>Jobb</title>
+    <link rel="stylesheet" href="/source/style.css">
+    <style>
+        body {
+            width: 90%;
+            height: 90%;
+            display: flex;
+            background-color: #313131;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+            background-size: 30px 30px;
+            background-position: -5px -5px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #loading {
+            width: 1470px;
+            height: 781px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(159 159 159 / 0%) 0%, rgb(191 191 191 / 72%) 50%, rgb(0 0 0 / 0%) 100%);
+    animation: slide 1s alternate infinite;
+}
+        @keyframes slide {
+            0% {
+                transform: translateX(0%);
+                width: 0px;
+            }
+            100% {
+                transform: translateX(100%);
+                width: 50%;
+            }
+        }
+
+        p {
+            display: none; /* Esconder o parágrafo */
+        }
+        .title{
+    background: #d7d7d7;
+    position: absolute;
+    width: 400px;
+    height: 70px;
+    top: 20px;
+    border-radius: 10px; 
+        }
+        .sideleft{
+            position: absolute;
+    background: #c7c8c7;
+    width: 635px;
+    height: 630px;
+    border-radius: 18px;
+    top: 124px;
+    left: 60px;
+        }
+    .siderigth{
+        position: absolute;
+    background: #c7c8c7;
+    width: 635px;
+    height: 630px;
+    border-radius: 18px;
+    top: 124px; 
+    right: 60px;
+    }
+    </style>
+    
 </head>
 <body>
+    <div class="borraoverde"></div>
+
+    <div class="borraoroxo"></div>
+    <!-- Div de carregamento -->
+    <div class="painel" id="loading">
+        
+    <div class="title"><div class="loader"></div></div>
+
+    <div class="sideleft"><div class="loader"></div></div>
+
+    <div class="siderigth"><div class="loader"></div></div>
+    </div>
+
+
     <script>
         let projects = {
             'value': '10',
@@ -102,11 +191,11 @@
             'projeto10': {
                 // informações do projeto 3
                 'name': 'projeto10',
-                'last-data': '10/5/2024',
-                'horas': '7.00',
-                'acumulado': '7.39',
+                'last-data': '9/5/2024',
+                'horas': '3.00',
+                'acumulado': '1.39',
                 'git': 'https://github.com/pedr-moura',
-                'format-data': '2024-05-10',
+                'format-data': '2024-05-09',
                 'type': 'job'
             },
             'projetodiferente11': {
@@ -138,7 +227,7 @@
         let projectsJSON = JSON.stringify(projects, null, 4);
 
         // Criando uma div para exibir o JSON
-        let jsonDiv = document.createElement('div');
+        let jsonDiv = document.createElement('p');
         jsonDiv.textContent = projectsJSON;
 
         // Adicionando a div ao corpo do documento
@@ -153,26 +242,32 @@
         // Verificando quantos projetos foram salvos no localStorage
         let savedProjects = retrievedData ? Object.keys(JSON.parse(retrievedData)).length - 1 : 0;
 
-        // Exibindo os resultados
-        console.log(`Total de projetos: ${totalProjects}`);
-        console.log(`Projetos salvos no localStorage: ${savedProjects}`);
+               // Função para obter parâmetro GET da URL
+               function obterParametroGET(nome) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nome);
+        }
+
+        // Função para redirecionar para uma URL
+        function redirecionarPara(url) {
+            window.location.href = url;
+        }
 
         const idUsuario = obterParametroGET('id');
 
-        function obterParametroGET(nome) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(nome); }
 
-     function redirecionarPara(url) {
-    window.location.href = url;
-        }
+setTimeout(() => {
 
-        if (totalProjects !== 0 && idUsuario !== null) {
+    if (totalProjects !== 0 && idUsuario !== null) {
+        // Redireciona para a página com os parâmetros corretos
         redirecionarPara(`../?id=${idUsuario}&auth=1`);
-        }else{
-            redirecionarPara(`../login/`);
-        }
+    } else {
 
+        document.getElementById('loading').style.display = 'none';
+
+        redirecionarPara(`../login`);
+    }
+}, 1000); // Tempo em milissegundos (5 segundos)
 
 
     </script>

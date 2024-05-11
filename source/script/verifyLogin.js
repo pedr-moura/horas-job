@@ -1,5 +1,5 @@
-window.projects = null;
 
+window.projects = null;
 function obterParametroGET(nome) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(nome);
@@ -10,6 +10,11 @@ function redirecionarPara(url) {
 }
 
 const idUsuario = obterParametroGET('id');
+const auth = obterParametroGET('auth');
+
+if (auth == null) {
+    redirecionarPara('/api/?id=' + idUsuario);
+}
 
 if (idUsuario !== null) {
     const projectsData = localStorage.getItem('projectsData');
@@ -18,7 +23,6 @@ if (idUsuario !== null) {
         window.projects = JSON.parse(projectsData);
     } else {
         console.error('Erro: Dados não encontrados na localStorage');
-        carregarDados('/api/?id=' + idUsuario);
     }
 } else {
     redirecionarPara('/login');
@@ -46,7 +50,6 @@ function carregarDados(url) {
 
     xhr.send();
 }
-
 
 if (idUsuario !== 'pedromoura') {
     redirecionarPara(`../login/`);
