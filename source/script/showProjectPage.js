@@ -65,6 +65,7 @@ function showOverviewPage(){
   sectionSideLeft.style.display = 'block'
   sectionSideRight.style.display = 'block'
   sectionProjects.style.display = 'none'
+  
 }
 
 showOverviewPage()

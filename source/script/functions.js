@@ -72,13 +72,13 @@ function saveCreateNewProject() {
 
 function closeNewProjectCreate() {
     box.innerHTML = ``
+    redirecionarPara('/api/?id=' + idUsuario);
 }
 
 //newProjectName -> nome do projeto
 //newProjectLink -> link
 
 function viewProjects() {
-        
         // Obter os valores dos elementos HTML
         var uploadProjectLink = document.getElementById("newProjectLink").innerText;
         var uploadNameProject = document.getElementById("uploadNameProject").innerText;
@@ -109,7 +109,7 @@ function viewProjects() {
         });
 
     closeNewProjectCreate()
-    showProjectPage()
+
     
 }
 
@@ -191,6 +191,7 @@ function initCountHoursProject() {
 }
 
 function alterarValue(){
+    showOverviewPage()
     box.innerHTML = `
     <div id="box" class="box"> 
             <div class="navbar">
@@ -208,7 +209,7 @@ function alterarValue(){
 
             <br>
             <p>Digite '<strong>12345</strong>' para validar</p>
-            <input type="password" name="" placeholder="" id="password">
+            <input type="text" name="" placeholder="" id="password">
             <br>
             <br>
             <button class="button" style="width: 100%; background: #ffc83d;" onclick="saveValue()"> Salvar </button>
