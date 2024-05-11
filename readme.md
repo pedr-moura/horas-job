@@ -34,9 +34,8 @@ functions.js
 
         exemplo:
         
-        http://-------api--------/?id=pedromoura&uploadNameProject=1&hoursCount=0.0006 
+        http://-------api--------/?id=pedromoura&uploadNameProject=TESTE&hoursCount=0.0031&github=github.com%2Fteste 
 
-# falta adicionar o link do git hub
 
 -- api salvar value
 functions.js

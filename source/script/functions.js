@@ -40,18 +40,24 @@ function processNewProject(){
     let newProjectName = document.getElementById('newProjectName')
     let newProject = newProjectName.value
 
+    let newProjectLink = document.getElementById('newProjectLink')
+    let newProjectL = newProjectLink.value
+
     if (newProject == '') {
         newProjectName.style.border = '1px solid red'
     }else{
-        openProject(newProject.toLowerCase())   
+        openProject(newProject.toLowerCase(), newProjectL)   
     }
 
-    console.log(newProject);
+    console.log(newProject +' '+ newProjectL);
 }
 function saveCreateNewProject() {
     let newProjectName = document.getElementById('newProjectName')
     let newProject = newProjectName.value
-    
+
+    let newProjectLink = document.getElementById('newProjectLink')
+    let newProjectL = newProjectLink.value
+
     if(newProject == ''){
         newProjectName.style.border = '1px solid red'
     }else{    
@@ -72,13 +78,14 @@ function closeNewProjectCreate() {
 //newProjectLink -> link
 
 function viewProjects() {
-
+        
         // Obter os valores dos elementos HTML
+        var uploadProjectLink = document.getElementById("newProjectLink").innerText;
         var uploadNameProject = document.getElementById("uploadNameProject").innerText;
         var hoursCount = document.getElementById("hoursCount").innerText;
 
         // Formatar os dados para enviar na URL
-        var dados = "uploadNameProject=" + encodeURIComponent(uploadNameProject) + "&hoursCount=" + encodeURIComponent(hoursCount);
+        var dados = "uploadNameProject=" + encodeURIComponent(uploadNameProject) + "&hoursCount=" + encodeURIComponent(hoursCount) + "&github=" + encodeURIComponent(uploadProjectLink);
 
         // Montar a URL da API
         var urlAPI = `http://-------api--------/?id=${idUsuario}&` + dados;
@@ -107,10 +114,9 @@ function viewProjects() {
 }
 
 
-function openProject(projectName) {
+function openProject(projectName, github) {
     showOverviewPage()
     
-
   for (const projeto in projects) {
     
  let acumulado = 0
@@ -130,7 +136,7 @@ function openProject(projectName) {
     box.innerHTML = 
     `<div id="box" class="box">
         <div class="navbar">
-        <span class="moveinfo">Jobb</span>
+        <span class="moveinfo" id="newProjectLink">${github}</span>
             <p id="uploadNameProject"> ${projectName.toUpperCase()}</p>
             <button onclick="closeNewProjectCreate()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
