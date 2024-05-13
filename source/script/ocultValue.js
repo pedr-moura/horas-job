@@ -38,6 +38,6 @@ function onViewValue() {
     }else{
         viewon.style.display = 'block'
         viewoff.style.display = 'none'
-        showValueSection.innerHTML = `${totalValueFormatado}`
+        showValueSection.innerHTML = `R$ ${totalValueFormatado}`
     }
 }
