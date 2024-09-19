@@ -41,6 +41,7 @@ input[type="text"] {
 @media screen and (max-width: 1024px) {
     .painel {
         transform: scale(0.6); /* Escala para telas menores que 768px */
+        height: 700px;
     }
 }
 
