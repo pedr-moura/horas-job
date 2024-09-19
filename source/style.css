@@ -35,12 +35,12 @@ input[type="text"] {
 }
 @media screen and (max-width: 1440px) {
     .painel {
-        transform: scale(0.8); /* Escala para telas menores que 768px */
+        transform: scale(0.7); /* Escala para telas menores que 768px */
     }
 }
 @media screen and (max-width: 1024px) {
     .painel {
-        transform: scale(0.65); /* Escala para telas menores que 768px */
+        transform: scale(0.6); /* Escala para telas menores que 768px */
     }
 }
 
